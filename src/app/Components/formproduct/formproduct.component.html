@@ -1,0 +1,39 @@
+<h2 class="mb-4">
+    @if(product){
+        Editar
+    }@else {
+        Nuevo
+    } Producto
+</h2>
+<div class="row row-cols-3 justify-content-center">
+    @if (form) {
+        <form [formGroup]="form" (ngSubmit)="guardar()">
+            <div class="mb-3">
+                <label for="name">Nombre</label>
+                <input id="name" type="text" placeholder="Nombre" class="form-control" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="fecha_registro">Fecha de Registro</label>
+                <input id="fecha_registro" type="datetime-local" placeholder="Fecha de Registro" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="precio">Precio</label>
+                <input id="precio" type="text" placeholder="Precio" class="form-control" formControlName="precio">
+            </div>
+            <div class="mb-3">
+                <label for="name">Stock</label>
+                <input id="stock" type="text" placeholder="Stock" class="form-control" formControlName="stock">
+            </div>
+            <div class="text-end">
+                <button type="button" class="btn btn-light" routerLink="/">Cancelar</button>
+                <button class="btn btn-primary ms-2" >
+                    @if(product){
+                        Actualizar
+                    }@else {
+                        Crear
+                    } Producto
+                </button>
+            </div>
+        </form>
+    }
+</div>
